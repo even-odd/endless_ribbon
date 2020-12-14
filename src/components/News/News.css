@@ -1,0 +1,26 @@
+.news-item {
+  margin: 30px 0;
+  border-bottom: 3px dashed gray;
+}
+
+.news-item__title {
+  margin: 10px 15px;
+  font-size: 24px;
+}
+
+@media (max-width: 767px) {
+  .news-item__title {
+    font-size: 18px;
+  }
+}
+
+.news-item__img-box {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.news-item__img {
+  max-width: 100%;
+  max-height: 800px;
+}

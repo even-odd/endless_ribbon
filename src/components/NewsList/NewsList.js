@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -12,8 +12,15 @@ import actions from './NewsActions'
 
 const PARENT = 'NewsList'
 
-function NewsList(props) {
-  const { news } = props
+function NewsList({
+  news,
+  getNews_API,
+  showFullScreenNews,
+  closeFullScreenNews,
+}) {
+  useEffect(() => {
+    getNews_API(PARENT)
+  }, [])
 
   return (
     <div className="news-list">
@@ -22,13 +29,16 @@ function NewsList(props) {
       <ScrollBox delay={300} bottomOffset={300}>
         <EndlessLoader
           parent={PARENT}
-          getNewElements={() => props.getNews_API(PARENT)}
+          getNewElements={() => getNews_API(PARENT)}
         >
           {news.map((item) => (
             <News
               key={item.fakeId}
               item={item}
-              onClick={() => props.showFullScreenNews(item)}
+              actions={{
+                showFullScreenNews: () => showFullScreenNews(item),
+                closeFullScreenNews: () => closeFullScreenNews(item),
+              }}
             />
           ))}
           <Preloader parent={PARENT} />

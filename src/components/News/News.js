@@ -1,13 +1,34 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-function News({ item, onClick }) {
+import './News.css'
+
+import RetractableWrapper from '../RetractableWindow/RetractableWrapper'
+import FullNews from './FullNews/FullNews'
+import ShortNews from './ShortNews/ShortNews'
+
+function News({ item, actions }) {
+  const { showFullScreenNews, closeFullScreenNews } = actions
+  let shortNewsRef = useRef()
+
   return (
-    <div className="news-item" onClick={onClick}>
-      <div className="news-item__title">{item.title}</div>
-      <div className="news-item__img-box">
-        <img alt="Обложка новости" src={item.urlToImage} />
-      </div>
-    </div>
+    <>
+      {item.fullScreen && (
+        <RetractableWrapper>
+          <FullNews
+            item={item}
+            onClick={(e) => {
+              closeFullScreenNews(e)
+              shortNewsRef.current.scrollIntoView()
+            }}
+          />
+        </RetractableWrapper>
+      )}
+      <ShortNews
+        shortNewsRef={shortNewsRef}
+        item={item}
+        onClick={showFullScreenNews}
+      />
+    </>
   )
 }
 

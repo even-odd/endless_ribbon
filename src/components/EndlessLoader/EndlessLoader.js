@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import './EndlessLoader.css'
 
-// TODO-fix: элементы загружаются 2 раза!
 function EndlessLoader({
   loaders,
   parent,
@@ -18,7 +17,7 @@ function EndlessLoader({
   const bottomRef = useRef()
 
   useEffect(() => {
-    if (isLoading) return
+    if (isLoading || !isBottom) return
     getNewElements()
   }, [isBottom])
 

@@ -36,12 +36,10 @@ function checkBottomScroll(e, setIsBottom, bottomOffset) {
   let { scrollTop, scrollTopMax } = e.target
 
   if (scrollTop + bottomOffset < scrollTopMax) {
-    console.debug('isBottom: ', false)
     setIsBottom(false)
     return
   }
 
-  console.debug('isBottom: ', true)
   setIsBottom(true)
 }
 

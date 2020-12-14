@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import './Preloader.css'
+
 function Preloader(props) {
   const { preloaders } = props
-  const { parent, children } = props
+  const { parent } = props
 
   let parentClass = parent ? `preloader_${parent}` : ''
 
@@ -12,7 +14,7 @@ function Preloader(props) {
 
   return (
     <div className={`preloader ${parentClass} ${activeClass}`}>
-      {children ? children : ''}
+      <div className="preloader__item"></div>
     </div>
   )
 }

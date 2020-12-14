@@ -9,9 +9,10 @@ export const stopLoading = (parent) => (dispatch) => {
   dispatch({ type: STOP_LOADING, parent })
 }
 
-export default {
+const EDLESS_LOADER_ACTIONS = {
   startLoading,
   stopLoading,
 }
+export default EDLESS_LOADER_ACTIONS
 
 export const EDLESS_LOADER_ACTION_TYPES = { START_LOADING, STOP_LOADING }

@@ -1,0 +1,12 @@
+.news-item_full {
+  border: none;
+}
+
+.news-item__content {
+  margin: 10px 0;
+}
+@media (max-width: 767px) {
+  .news-item__content {
+    font-size: 14px;
+  }
+}

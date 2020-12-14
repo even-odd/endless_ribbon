@@ -1,0 +1,8 @@
+.news-item__description {
+  margin: 10px 0;
+}
+@media (max-width: 767px) {
+  .news-item__description {
+    font-size: 14px;
+  }
+}

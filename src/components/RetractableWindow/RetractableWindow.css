@@ -1,0 +1,10 @@
+.retractable-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+
+  min-height: 100%;
+  max-width: 100%;
+  background-color: white;
+}

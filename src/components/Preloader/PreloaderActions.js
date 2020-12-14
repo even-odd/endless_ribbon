@@ -9,9 +9,10 @@ export const stopPreloader = (parent) => (dispatch) => {
   dispatch({ type: STOP_PRELOADER, parent })
 }
 
-export default {
+const PRELOADER_ACTIONS = {
   startPreloader,
   stopPreloader,
 }
+export default PRELOADER_ACTIONS
 
 export const PRELOADER_ACTION_TYPES = { START_PRELOADER, STOP_PRELOADER }
